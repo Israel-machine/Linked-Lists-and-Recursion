@@ -32,9 +32,17 @@ class LinkedList:
         if node is None:
             return 0
         return node.data + self._recursive_sum(node.next)
-
+##=====
     def search(self, target):
+        """Standard search method."""
         return self._recursive_search(self.head, target)
+
+    def recursive_search(self, target):
+        """
+        Alias for the automated tests. 
+        Calls the same logic but matches the expected test name.
+        """
+        return self.search(target)
 
     def _recursive_search(self, node, target):
         if node is None:
@@ -42,6 +50,8 @@ class LinkedList:
         if node.data == target:
             return True
         return self._recursive_search(node.next, target)
+
+##=====
 
     def reverse(self):
         self.head = self._recursive_reverse(self.head, None)
